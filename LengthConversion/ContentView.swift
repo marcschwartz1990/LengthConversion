@@ -11,8 +11,14 @@ struct ContentView: View {
     @State private var inputUnit = "ft"
     @State private var outputUnit = "m"
     @State private var valueToConvert = 0.0
+    
+    var metersToKilometers: Double {
+        return valueToConvert / 1000
+    }
+    
+    
     let unitsOfMeasurement = ["m", "km", "ft", "yd", "mi"]
-    // TODO: Create conversion functions
+    
     // TODO: Display result
     
     var body: some View {
@@ -43,10 +49,23 @@ struct ContentView: View {
                 }
                 
                 Section {
+                    // Enter Value Field
                     TextField("Value", value: $valueToConvert, format: .number)
                         .keyboardType(.decimalPad)
                 } header: {
                     Text("Enter value")
+                }
+                
+                Section {
+                    // Conversion Result
+                    // TODO: Convert if else statement idea to enum or switch statement?
+                    if inputUnit == "m" && outputUnit == "km" {
+                        Text(metersToKilometers, format: .number)
+                    } else {
+                        Text("Coming Soon")
+                    }
+                } header: {
+                    Text("Result")
                 }
             }
             .navigationTitle("LengthConversion")
