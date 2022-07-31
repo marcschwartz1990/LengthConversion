@@ -53,8 +53,9 @@ struct ContentView: View {
                     TextField("Value", value: $valueToConvert, format: .number)
                         .keyboardType(.decimalPad)
                 } header: {
-                    Text("Enter value")
+                    Text("ENTER VALUE (\(inputUnit))")
                 }
+                .textCase(nil)
                 
                 Section {
                     // Conversion Result
@@ -65,8 +66,9 @@ struct ContentView: View {
                         Text("Coming Soon")
                     }
                 } header: {
-                    Text("Result")
+                    Text("RESULT (\(outputUnit))")
                 }
+                .textCase(nil)
             }
             .navigationTitle("LengthConversion")
         }
